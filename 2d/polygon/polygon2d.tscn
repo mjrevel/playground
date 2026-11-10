@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://ce0npeoiht5pv"]
+
+[ext_resource type="Script" uid="uid://bspasjmqcpqr6" path="res://2d/polygon/polygon_2d.gd" id="1_me3ss"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jerio"]
+
+[node name="Polygon2d" type="Node2D" unique_id=1179644824]
+script = ExtResource("1_me3ss")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1354002559]
+anchor_mode = 0
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1227320143]
+position = Vector2(604, 141)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=45691417]
+shape = SubResource("RectangleShape2D_jerio")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=375455841]
+position = Vector2(585, 339)
+polygon = PackedVector2Array(-262.8755, 69.60301, -83.78457, -62.21518, 72.57909, -62.21518, 139.8518, 52.33029)
+uv = PackedVector2Array(-258.33002, 80.512115, -106.51184, -52.21518, 49.851807, -52.21518, 257.12457, 74.14847)
+polygons = [PackedInt32Array(0, 2, 1), PackedInt32Array(3, 2, 0)]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Polygon2D" unique_id=243169664]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Polygon2D/StaticBody2D" unique_id=357805964]
+
+[node name="Destructive" type="Polygon2D" parent="." unique_id=280099693]
+position = Vector2(622, 258)
+polygon = PackedVector2Array(-84.75145, 30.06826, -28.901031, -7.264412, -63.539352, -34.119316, -6.0421143, -31.4609, 13.43927, -59.344154, 23.871506, -22.790512, 63.498245, -38.750496, 25.952194, 4.0547943, 60.33641, 59.3515, 6.226303, 27.822205, -38.99771, 68.16805, -18.404068, 18.109077)
+uv = PackedVector2Array(-283, -58, -235, -105, -274, -125, -217, -133, -203, -164, -186, -130, -150, -153, -179, -104, -135, -56, -194, -77, -231, -29, -220, -82)

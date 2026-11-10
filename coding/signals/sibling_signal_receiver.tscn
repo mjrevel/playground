@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b7c1ofct4y4mr"]
+
+[ext_resource type="Script" uid="uid://byvkb2s1bmpnv" path="res://coding/signals/sibling_signal_receiver.gd" id="1_5nkf4"]
+
+[node name="SiblingSignalReceiver" type="Node2D" unique_id=157175654]
+script = ExtResource("1_5nkf4")

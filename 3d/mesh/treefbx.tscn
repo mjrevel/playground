@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cbbc5e048r454"]
+
+[ext_resource type="PackedScene" uid="uid://rcm08o6wxt4p" path="res://3d/mesh/Lowpoly_tree_sample.fbx" id="1_qk384"]
+
+[node name="treefbx" unique_id=1471998447 instance=ExtResource("1_qk384")]

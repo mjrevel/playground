@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dx2t75emfhg4p"]
+
+[ext_resource type="Script" uid="uid://dlyqdw6ljboii" path="res://physics/body.gd" id="1_46po4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3g5ob"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3g5ob"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p3gkh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4u130"]
+size = Vector2(134, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3g5ob"]
+size = Vector2(475.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3gkh"]
+size = Vector2(9, 61)
+
+[node name="Body" type="Node2D" unique_id=1628649546]
+script = ExtResource("1_46po4")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=131294153]
+anchor_mode = 0
+
+[node name="ball" type="RigidBody2D" parent="." unique_id=1971486100]
+position = Vector2(102, 40)
+physics_material_override = SubResource("PhysicsMaterial_3g5ob")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ball" unique_id=856814947]
+shape = SubResource("CircleShape2D_3g5ob")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=1448150803]
+position = Vector2(589, 357)
+node_a = NodePath("StaticBody2D")
+node_b = NodePath("fan")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PinJoint2D" unique_id=1260595499]
+
+[node name="fan" type="RigidBody2D" parent="PinJoint2D" unique_id=545217996]
+physics_material_override = SubResource("PhysicsMaterial_p3gkh")
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PinJoint2D/fan" unique_id=2129260273]
+shape = SubResource("RectangleShape2D_4u130")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=764115140]
+position = Vector2(285, 234)
+rotation = 0.52356625
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=204187204]
+shape = SubResource("RectangleShape2D_3g5ob")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=45027233]
+position = Vector2(755, 489)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=17192586]
+shape = SubResource("RectangleShape2D_3g5ob")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=449733179]
+position = Vector2(693, 446)
+mass = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=567099768]
+shape = SubResource("RectangleShape2D_p3gkh")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="." unique_id=1272705210]
+position = Vector2(716, 446)
+mass = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" unique_id=596683745]
+shape = SubResource("RectangleShape2D_p3gkh")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="." unique_id=816636133]
+position = Vector2(741, 446)
+mass = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3" unique_id=2115611741]
+shape = SubResource("RectangleShape2D_p3gkh")

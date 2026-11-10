@@ -1,0 +1,50 @@
+[gd_resource type="VisualShader" format=3 uid="uid://daab33iew4bvo"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_esslq"]
+output_port_for_preview = 1
+expanded_output_ports = [0]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVectorDistance" id="VisualShaderNodeVectorDistance_vjlf5"]
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0.5, 0.5)]
+op_type = 0
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_ot2vd"]
+output_port_for_preview = 0
+default_input_values = [0, 0.5, 1, 0.57]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_cosxp"]
+output_port_for_preview = 0
+expanded_output_ports = [0]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_a4xfg"]
+
+[sub_resource type="VisualShaderNodeStep" id="VisualShaderNodeStep_ghfiy"]
+output_port_for_preview = 0
+default_input_values = [0, 0.62, 1, 0.5]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_esslq"]
+output_port_for_preview = 0
+default_input_values = [0, Vector2(0, 0), 1, Vector2(0, 0)]
+op_type = 0
+operator = 2
+
+[resource]
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_esslq")
+nodes/fragment/2/position = Vector2(-740, 140)
+nodes/fragment/3/node = SubResource("VisualShaderNodeVectorDistance_vjlf5")
+nodes/fragment/3/position = Vector2(-380, 120)
+nodes/fragment/4/node = SubResource("VisualShaderNodeStep_ot2vd")
+nodes/fragment/4/position = Vector2(-120, 120)
+nodes/fragment/6/node = SubResource("VisualShaderNodeInput_cosxp")
+nodes/fragment/6/position = Vector2(-720, 620)
+nodes/fragment/7/node = SubResource("VisualShaderNodeFloatOp_a4xfg")
+nodes/fragment/7/position = Vector2(-360, 620)
+nodes/fragment/8/node = SubResource("VisualShaderNodeStep_ghfiy")
+nodes/fragment/8/position = Vector2(-120, 460)
+nodes/fragment/9/node = SubResource("VisualShaderNodeVectorOp_esslq")
+nodes/fragment/9/position = Vector2(120, 120)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 0, 2, 0, 3, 0, 6, 1, 7, 0, 6, 2, 7, 1, 7, 0, 8, 1, 9, 0, 0, 1, 4, 0, 9, 0, 8, 0, 9, 1)

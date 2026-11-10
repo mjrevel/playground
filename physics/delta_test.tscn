@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b0qlm4jwqwe00"]
+
+[ext_resource type="Script" uid="uid://c4atmfdkamgvo" path="res://physics/delta_test.gd" id="1_5bq8y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3gkh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3gkh"]
+size = Vector2(518, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3g5ob"]
+
+[node name="DeltaTest" type="Node2D" unique_id=1098303216]
+script = ExtResource("1_5bq8y")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=116075489]
+anchor_mode = 0
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=195687877]
+physics_interpolation_mode = 2
+position = Vector2(592, 200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1944790195]
+shape = SubResource("CircleShape2D_p3gkh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1470772978]
+position = Vector2(581, 396)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1526878653]
+position = Vector2(13, 0)
+shape = SubResource("RectangleShape2D_p3gkh")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=1401209242]
+position = Vector2(463, 274)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1753767059]
+position = Vector2(0, -77)
+shape = SubResource("CircleShape2D_3g5ob")

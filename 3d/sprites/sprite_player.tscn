@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://o3pmp6hh3mjp"]
+
+[ext_resource type="Texture2D" uid="uid://dom7pd4jf6s1p" path="res://3d/sprites/stickguy.png" id="1_6h2xf"]
+[ext_resource type="Script" uid="uid://c4u6d0jim6tr6" path="res://3d/sprites/sprite_player.gd" id="1_qq8hw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3g5ob"]
+radius = 0.030761719
+height = 0.22924805
+
+[sub_resource type="Animation" id="Animation_qq8hw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7aoiv"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_25s2f"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-1.4901161e-08, 0.099999994, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [2, 3, 4, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q4rtc"]
+_data = {
+&"RESET": SubResource("Animation_qq8hw"),
+&"idle": SubResource("Animation_7aoiv"),
+&"run": SubResource("Animation_25s2f")
+}
+
+[node name="SpritePlayer" type="CharacterBody3D" unique_id=2020345596]
+script = ExtResource("1_qq8hw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1728945266]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0.72631836, 0)
+shape = SubResource("CapsuleShape3D_3g5ob")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=651809859]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 1, 0)
+texture = ExtResource("1_6h2xf")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2085695926]
+libraries/ = SubResource("AnimationLibrary_q4rtc")

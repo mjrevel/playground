@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ug4ol07i5pn"]
+
+[ext_resource type="Shader" uid="uid://bxqdaid01wp5w" path="res://2d/shader/ShaderTransitionFollowMouse.gdshader" id="1_ly10j"]
+[ext_resource type="Texture2D" uid="uid://cqbigngdp8x7g" path="res://images/dot_pattern.png" id="2_2asql"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ly10j"]
+shader = ExtResource("1_ly10j")
+shader_parameter/progress = 0.8770000416575
+shader_parameter/width = 0.5
+shader_parameter/tile_texture = ExtResource("2_2asql")
+shader_parameter/tile_pixel_size = 512.0
+shader_parameter/tile_grown_scale = 1.0000000475
+
+[node name="Menu" type="Control" unique_id=1660353857]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=425186508]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=935930024]
+material = SubResource("ShaderMaterial_ly10j")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.19607843, 0, 1)

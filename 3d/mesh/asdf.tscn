@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://wdj74msrsgil"]
+
+[ext_resource type="PackedScene" uid="uid://c3sv4w017080j" path="res://3d/mesh/Lowpoly_tree_sample.obj" id="1_qwlhv"]
+
+[node name="asdf" unique_id=907521571 instance=ExtResource("1_qwlhv")]

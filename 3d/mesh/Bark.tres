@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://byxewgb7ksaj6"]
+
+[resource]
+resource_name = "Bark"
+albedo_color = Color(0.207595, 0.138513, 0.055181, 1)

@@ -1,0 +1,5 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dkq6sbht71pgm"]
+
+[resource]
+resource_name = "Tree"
+albedo_color = Color(0.256861, 0.440506, 0.110769, 1)

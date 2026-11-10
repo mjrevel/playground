@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dp1dpfue2h1h6"]
+
+[ext_resource type="Script" uid="uid://dyhvvpsaa1x1j" path="res://coding/signals/main.gd" id="1_2vwt7"]
+[ext_resource type="Script" uid="uid://k7sgbmssqkjr" path="res://coding/signals/ui.gd" id="2_esvsk"]
+[ext_resource type="PackedScene" uid="uid://cf056etry5nl3" path="res://coding/signals/sibling_signal_emitter.tscn" id="3_p6j3p"]
+[ext_resource type="PackedScene" uid="uid://b7c1ofct4y4mr" path="res://coding/signals/sibling_signal_receiver.tscn" id="4_3q5kf"]
+
+[node name="Main" type="Node2D" unique_id=1606813112]
+script = ExtResource("1_2vwt7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1471568758]
+anchor_mode = 0
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=2015548995]
+script = ExtResource("2_esvsk")
+
+[node name="VBoxMenu" type="VBoxContainer" parent="UI" unique_id=363994985]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="ButtonStart" type="Button" parent="UI/VBoxMenu" unique_id=801906477]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Start"
+
+[node name="LabelLogo" type="Label" parent="UI" unique_id=484616324]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_right = 23.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "LOGO"
+
+[node name="LabelInvisible" type="Label" parent="UI" unique_id=857518185]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "You found me!!!"
+
+[node name="SiblingSignalReceiver" parent="UI" unique_id=157175654 instance=ExtResource("4_3q5kf")]
+
+[node name="SiblingSignalEmitter" parent="UI" unique_id=898515603 instance=ExtResource("3_p6j3p")]
+
+[connection signal="pressed" from="UI/VBoxMenu/ButtonStart" to="UI" method="_on_button_start_pressed"]

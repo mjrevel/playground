@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cvdpbgs2ifhy7"]
+
+[ext_resource type="Script" uid="uid://n8ysd70ag55l" path="res://physics/collisions/collisions.gd" id="1_411h3"]
+[ext_resource type="Script" uid="uid://b7ynegwgpnr1e" path="res://physics/collisions/area_3d.gd" id="2_anamm"]
+[ext_resource type="Script" uid="uid://desnrj1rv2dii" path="res://physics/collisions/character_body_3d.gd" id="2_mw06p"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3g5ob"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4u130"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nn43i"]
+albedo_color = Color(1, 0.40392157, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4u130"]
+material = SubResource("StandardMaterial3D_nn43i")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p3gkh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3g5ob"]
+size = Vector3(4, 4, 1)
+
+[node name="Collisions" type="Node3D" unique_id=807610214]
+script = ExtResource("1_411h3")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=163415838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 6)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=448112685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+motion_mode = 1
+script = ExtResource("2_mw06p")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=996602895]
+mesh = SubResource("CapsuleMesh_3g5ob")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=2147462195]
+shape = SubResource("CapsuleShape3D_4u130")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1124405687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+gravity_scale = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=952227434]
+mesh = SubResource("CapsuleMesh_4u130")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1249261572]
+shape = SubResource("CapsuleShape3D_p3gkh")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=986730607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=33537451]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1588851059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, 0)
+size = Vector3(2, 1, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1527070313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5556493, 0)
+operation = 1
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1936137919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
+script = ExtResource("2_anamm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=233084949]
+shape = SubResource("BoxShape3D_3g5ob")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=449870559]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 3, 0)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
